@@ -23,6 +23,13 @@ jobs:
 
       - name: Install dependencies
         run: |
+          brew install automake
+          git clone git://git.sv.gnu.org/autoconf
+          cd autoconf
+          ./configure
+          make
+          make install
+          cd ../
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./compile.sh
