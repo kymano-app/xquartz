@@ -25,11 +25,7 @@ jobs:
         run: |
           brew install automake
           git clone git://git.sv.gnu.org/autoconf
-          cd autoconf
-          ./configure
-          make
-          make install
-          cd ../
+          cd autoconf && ./configure && make && make install
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./compile.sh
