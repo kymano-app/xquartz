@@ -23,6 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          brew install autoconf
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./compile.sh
