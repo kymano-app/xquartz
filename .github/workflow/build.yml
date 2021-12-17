@@ -1,0 +1,28 @@
+name: Build
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-11
+    strategy:
+      matrix:
+        arch: [arm64, x86_64]
+        platform: [macos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          git clone https://github.com/XQuartz/XQuartz.git
+          cd XQuartz
+          ./compile.sh
