@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          git clone https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
+          wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
           tar -xzf xcb-proto-1.14.1.tar.xz
           cd xcb-proto-1.14.1
           echo 'PYTHON_PREFIX=@PYTHON_PREFIX@' >> xcb-proto.pc.in
