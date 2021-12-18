@@ -26,7 +26,7 @@ jobs:
           wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
           tar -xzf xcb-proto-1.14.1.tar.xz
           cd xcb-proto-1.14.1
-          echo 'PYTHON_PREFIX=@PYTHON_PREFIX@' >> xcb-proto.pc.in
+          sed -i '' -e "5s/^//p; 5s/^.*/PYTHON_PREFIX=@PYTHON_PREFIX@/" xcb-proto.pc.in
           ./configure
           make
           make install
