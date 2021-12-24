@@ -31,8 +31,8 @@ jobs:
           ./configure
           make
           make install
-          mkdir -p /opt/X11/lib/pkgconfig/
-          ln -s /usr/local/lib/pkgconfig/xcb-proto.pc /opt/X11/lib/pkgconfig/xcb-proto.pc
+          sudo mkdir -p /opt/X11/lib/pkgconfig/
+          sudo ln -s /usr/local/lib/pkgconfig/xcb-proto.pc /opt/X11/lib/pkgconfig/xcb-proto.pc
           cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
