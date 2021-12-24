@@ -43,4 +43,8 @@ jobs:
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./install-or-update-macports.sh
+          cat /usr/local/lib/pkgconfig/xcb-proto.pc
+          echo "PKG_CONFIG_PATH"
+          echo $PKG_CONFIG_PATH
+
           ./compile.sh
