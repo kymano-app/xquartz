@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - 'master'
+      - "master"
   pull_request:
   release:
     types: [created]
@@ -23,8 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo mkdir -p /opt/X11/lib/pkgconfig/
-          sudo chmod -R 777 /opt/X11
+          #sudo mkdir -p /opt/X11/lib/pkgconfig/
+          #sudo chmod -R 777 /opt/X11
+
+          #echo "/opt/X11/lib/pkgconfig/xcb-proto.pc"
+          #cat /opt/X11/lib/pkgconfig/xcb-proto.pc
+          git clone https://github.com/XQuartz/XQuartz.git
+          cd XQuartz
+          ./install-or-update-macports.sh
           wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
           tar -xzf xcb-proto-1.14.1.tar.xz
           cd xcb-proto-1.14.1
@@ -34,9 +40,4 @@ jobs:
           make
           make install
           cd ../
-          echo "/opt/X11/lib/pkgconfig/xcb-proto.pc"
-          cat /opt/X11/lib/pkgconfig/xcb-proto.pc
-          git clone https://github.com/XQuartz/XQuartz.git
-          cd XQuartz
-          ./install-or-update-macports.sh
           ./compile.sh
