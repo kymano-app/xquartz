@@ -31,7 +31,7 @@ jobs:
           cd xcb-proto-1.14.1
           sed -i '' -e "5s/^//p; 5s/^.*/PYTHON_PREFIX=@PYTHON_PREFIX@/" xcb-proto.pc.in
           cat xcb-proto.pc.in
-          ./configure
+          ./configure --prefix=/opt/X11/
           make
           make install
           cd ../
