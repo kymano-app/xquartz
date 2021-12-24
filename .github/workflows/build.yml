@@ -27,10 +27,11 @@ jobs:
           tar -xzf xcb-proto-1.14.1.tar.xz
           cd xcb-proto-1.14.1
           sed -i '' -e "5s/^//p; 5s/^.*/PYTHON_PREFIX=@PYTHON_PREFIX@/" xcb-proto.pc.in
-          cat /opt/X11/lib/pkgconfig/xcb-proto.pc
+          cat xcb-proto.pc.in
           ./configure
           make
           make install
+          cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./install-or-update-macports.sh
