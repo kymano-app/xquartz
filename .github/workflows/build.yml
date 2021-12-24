@@ -27,6 +27,7 @@ jobs:
           tar -xzf xcb-proto-1.14.1.tar.xz
           cd xcb-proto-1.14.1
           sed -i '' -e "5s/^//p; 5s/^.*/PYTHON_PREFIX=@PYTHON_PREFIX@/" xcb-proto.pc.in
+          cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           ./configure
           make
           make install
