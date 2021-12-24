@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo mkdir -p /opt/X11/lib/pkgconfig/
+          sudo chmod -R 777 /opt/X11
           export PKG_CONFIG_PATH="/opt/X11/lib/pkgconfig/"
 
           wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
