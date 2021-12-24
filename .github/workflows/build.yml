@@ -37,6 +37,9 @@ jobs:
           # cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
           ls -lta /usr/local/lib/pkgconfig
+          echo $PKG_CONFIG_PATH
+          chmod 0777 /usr/local/lib/pkgconfig/xcb-proto.pc
+          cat /usr/local/lib/pkgconfig/xcb-proto.pc
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./install-or-update-macports.sh
