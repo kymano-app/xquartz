@@ -26,8 +26,7 @@ jobs:
           sudo mkdir -p /opt/X11/lib/pkgconfig/
           sudo chmod -R 777 /opt/X11
           export PKG_CONFIG_PATH="/opt/X11/lib/pkgconfig/"
-          sudo port -N -v install autoconf automake pkgconfig libtool py39-mako meson xmlto asciidoc doxygen fop groff gtk-doc
-          sudo port select python3 python39
+          brew install autoconf automake pkgconfig libtool py39-mako meson xmlto asciidoc doxygen fop groff gtk-doc
           echo "::::::::::::::::::::::::::::::::::::::::::::::::"
 
           wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
@@ -42,5 +41,4 @@ jobs:
           cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
-          # ./install-or-update-macports.sh
           ./compile.sh
