@@ -23,11 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          #sudo mkdir -p /opt/X11/lib/pkgconfig/
-          #sudo chmod -R 777 /opt/X11
-
-          #echo "/opt/X11/lib/pkgconfig/xcb-proto.pc"
-          #cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           git clone https://github.com/XQuartz/XQuartz.git
           cd XQuartz
           ./install-or-update-macports.sh
@@ -36,8 +31,12 @@ jobs:
           cd xcb-proto-1.14.1
           sed -i '' -e "5s/^//p; 5s/^.*/PYTHON_PREFIX=@PYTHON_PREFIX@/" xcb-proto.pc.in
           cat xcb-proto.pc.in
+          sudo mkdir -p /opt/X11/lib/pkgconfig/
+          sudo chmod -R 777 /opt/X11
           ./configure --prefix=/opt/X11/
           make
           make install
           cd ../
+          echo "/opt/X11/lib/pkgconfig/xcb-proto.pc"
+          cat /opt/X11/lib/pkgconfig/xcb-proto.pc
           ./compile.sh
